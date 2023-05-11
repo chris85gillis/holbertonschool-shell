@@ -1,2 +1,3 @@
 #!/bin/bash
-/basics$ cd /var 
+cd /root
+
