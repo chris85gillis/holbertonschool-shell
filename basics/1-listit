@@ -1,2 +1,2 @@
 #!/bin/bash
-find . basics echo "The contents of basics are:$find"
+echo "The contents of basics are: $(find . basics)"
