@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #3. If 9, say Hi!
 n=1                                                                                                                                                                       
-while [ $n -le 9 ]
+while [ $n -le 10 ]
 do                                                                                                                                                                       
         echo "Best School"                                                                                                                                                
         (( n++ ))
-if [ $n = 9 ]
+if [ $n = 10 ]
 then
 	echo "Hi"
 fi	
