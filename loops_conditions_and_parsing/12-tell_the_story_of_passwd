@@ -1,0 +1,21 @@
+#!/usr/bin/env bash 
+#blah blah blah
+
+
+IFS=":"
+
+
+
+while read -r username password uid gid info homedir shell
+
+do
+
+	    echo "The user $username is part of the $gid gang, lives in $homedir and rides $shell."
+
+	        echo "User $uid's place is protected by the passcode $password, more info about the user here: $info"
+
+		    echo
+
+	    done < /etc/passwd
+
+
