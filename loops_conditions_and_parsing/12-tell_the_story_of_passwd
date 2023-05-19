@@ -1,32 +1,42 @@
 #!/usr/bin/env bash 
-# Set the input field sep
-
-IFS=":"     # Setting the Internal Field Separator (IFS) to ':'
+#!/bin/bash
 
 
 
-while IFS= read -r line; do
+# Set the input field separator to ':' to parse /etc/passwd
 
-	    username=$(echo "$line" | cut -d ":" -f 1)
-
-	        groupid=$(echo "$line" | cut -d ":" -f 4)
-
-		    homedir=$(echo "$line" | cut -d ":" -f 6)
-
-		        shell=$(echo "$line" | cut -d ":" -f 7)
-
-			    userid_info=$(echo "$line" | cut -d ":" -f 5)
-
-			        password=$(echo "$userid_info" | cut -d "$" -f 2)
+IFS=":"
 
 
 
-				    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell."
+# Read the file /etc/passwd line by line
 
-				        echo "User ID's place is protected by the passcode $password, more info about the user here: $userid_info"
+while read -r username password uid gid user_info home shell; do
 
-					    echo
+	    # Extract the group name from /etc/group using the group ID
 
-				    done < /etc/passwd
+	        group_name=$(grep ":$gid:" /etc/group | cut -d: -f1)
 
 
+
+		    # Extract the password from user_info
+
+		        password=$(echo "$user_info" | cut -d',' -f1)
+
+
+
+			    # Extract additional user ID info
+
+			        id_info=$(echo "$user_info" | cut -d',' -f2-)
+
+
+
+				    # Display user information
+
+				        echo "The user $username is part of the $group_name gang, lives in $home and rides $shell."
+
+					    echo "User ID's place is protected by the passcode $password, more info about the user here: $id_info"
+
+					        echo
+
+					done < /etc/passwd
