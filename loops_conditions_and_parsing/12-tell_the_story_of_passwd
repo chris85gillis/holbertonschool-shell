@@ -1,56 +1,108 @@
 #!/usr/bin/env bash 
+# Set the input field separator to ':'
+
+IFS=":"
+
+
+
+# Read the /etc/passwd file line by line
+
+while read -r username password uid gid user_info home_dir shell; do
+
+	  # Extract additional information about the user
+
+	    group_name=$(getent group "$gid" | cut -d: -f1)
+
+	      command_shell=$(basename "$shell")
+
+
+
+	        # Print the user details
+
+		  echo "The user $username is part of the $group_name gang, lives in $home_dir, and rides $command_shell."
+
+		    echo "User ID's place is protected by the passcode $password, more info about the user here: $user_info"
+
+		      echo
+
+	      done < "/etc/passwd"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Set IFS to newline to read lines of /etc/passwd
 
-IFS=$'\n'
+#IFS=$'\n'
 
 
 
 # Read /etc/passwd line by line
 
-while read -r line; do
+#while read -r line; do
 
 	    # Set IFS to colon (:) to separate fields in the line
 
-	        IFS=":"
+#	        IFS=":"
 
-		    fields=($line)
+#		    fields=($line)
 
 
 
 		        # Extract fields from the line
 
-			    username="${fields[0]}"
+#			    username="${fields[0]}"
 
-			        password="${fields[1]}"
+#			        password="${fields[1]}"
 
-				    uid="${fields[2]}"
+#				    uid="${fields[2]}"
 
-				        gid="${fields[3]}"
+#				        gid="${fields[3]}"
 
-					    user_info="${fields[4]}"
+#					    user_info="${fields[4]}"
 
-					        home="${fields[5]}"
+#					        home="${fields[5]}"
 
-						    shell="${fields[6]}"
+#						    shell="${fields[6]}"
 
 
 
 						        # Extract additional user information from /etc/passwd
 
-							    group_name=$(getent group "$gid" | cut -d: -f1)
+#							group_name=$(getent group "$gid" | cut -d: -f1)
 
-							        command_shell=$(basename "$shell")
+						#	command_shell=$(basename "$shell")
 
 
 
 								    # Display user information
 
-								        echo "The user $username is part of the $group_name gang, lives in $home and rides $command_shell."
+						
+					    #			    echo "The user $username is part of the $group_name gang, lives in $home and rides $command_shell."
 
-									    echo "User ID's place is protected by the passcode $password, more info about the user here: $user_info"
+					#				    echo "User ID's place is protected by the passcode $password, more info about the user here: $user_info"
 
-									        echo
+					#				        echo
 
-									done < /etc/passwd
+					#				done < /etc/passwd
 
 
