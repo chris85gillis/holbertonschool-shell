@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Read the log file (assuming the log file is named "access.log")
+
+log_file="access.log"
+
+
+
+# Use awk to group visitors by IP and HTTP status code, and count occurrences
+
+awk '{ ip[$1][$9]++ } END { for (i in ip) for (j in ip[i]) print ip[i][j], i, j }' "$log_file" |
+
+    sort -rn
+
+
+
+# Usage: ./script.sh
+
+
