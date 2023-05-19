@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 #For ls
-for FILE in *; do echo $FILE; done
-
-
-
-
-
-
-
-#for d in *; do
-#	echo "$d"
-#done
+for file in *; do 
+	if [[ $file != .* && $file == -* ]]; then
+		filename="${file#*-}"
+		echo "$filename"
+	fi 
+done
