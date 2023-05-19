@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 #For ls
-for item in *
-do if [ -d $item ] 
-then echo $item
-fi
-done
+for FILE in *; do echo $FILE; done
+
+
+
+
+
+
+
+#for d in *; do
+#	echo "$d"
+#done
