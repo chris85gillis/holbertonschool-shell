@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#test test
+# shellcheck disable=SC2009
+
+
+
+# Use ps command to list processes, filter for "bash" keyword, and exclude the grep command itself
+
+ps aux | grep bash | grep -v grep
+
+
