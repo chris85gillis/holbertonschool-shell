@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #log_file="access.log"
 
-awk '{print $1}' | sort | uniq -c | sort -nr
+cat access.log | awk '{print $1}' | sort | uniq -c | sort -nr | awk '{printf"%-8s ==> %s\n", $2, $1 | head -10
 
 # Use awk to group visitors by IP and HTTP status code, and count occurrences
 
