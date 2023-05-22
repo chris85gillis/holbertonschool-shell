@@ -1,15 +1,40 @@
 #!/usr/bin/env bash
-# Read the log file (assuming the log file is named "access.log")
 
-log_file="access.log"
+# Read the log file
+log_file="/path/to/access.log"
+
+# Check if the log file exists
+if [ ! -f "$log_file" ]; then
+	  echo "Log file not found: $log_file"
+	    exit 1
+fi
+
+# Group visitors by IP and HTTP status code, format and sort them
+visitors=$(awk '{count[$1" "$9]++} END {for (key in count) printf "%-15s %s\n", count[key], key}' "$log_file" | sort -nr)
+
+# Display the grouped visitors
+echo "OCCURRENCE_NUMBER IP               HTTP_CODE"
+echo "-------------------------------------------"
+echo "$visitors"
+
+
+
+
+
+
+
+
+
+
+#log_file="access.log"
 
 
 
 # Use awk to group visitors by IP and HTTP status code, and count occurrences
 
-awk '{ ip[$1][$9]++ } END { for (i in ip) for (j in ip[i]) print ip[i][j], i, j }' "$log_file" |
+#awk '{ ip[$1][$9]++ } END { for (i in ip) for (j in ip[i]) print ip[i][j], i, j }' "$log_file" |
 
-    sort -rn
+ #   sort -rn
 
 
 
