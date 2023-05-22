@@ -1,39 +1,24 @@
 #!/usr/bin/env bash
 # Search for processes with the name containing "bash" using pgrep
-pids=$(pgrep -f bash)
 
-# Iterate over each PID and extract the process name using ps
-for pid in $pids; do
-	  process_name=$(ps -p $pid -o comm=)
-	    echo "PID: $pid, Process Name: $process_name"
-    done
-
-
-
-
-
-
-
-
-
-#pids=$(pgrep bash)
+pids=$(pgrep bash)
 
 
 
 # Iterate over each PID and retrieve the process name
 
-#for pid in $pids; do
+for pid in $pids; do
 
   # Retrieve the process name using the /proc filesystem
 
- # process_name=$(grep -Po '^Name:\s+\K.*' "/proc/$pid/status")
+ process_name=$(grep -Po '^Name:\s+\K.*' "/proc/$pid/status")
 
 
 
   # Display the PID and process name
 
-  #echo "PID: $pid, Process Name: $process_name"
+ echo "PID: $pid, Process Name: $process_name"
 
-#done
+done
 
 
