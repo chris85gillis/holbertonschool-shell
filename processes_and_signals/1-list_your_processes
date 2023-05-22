@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #Get the list of all processes and their details
-ps -aux | less
+ps -auxf
 
 
 
