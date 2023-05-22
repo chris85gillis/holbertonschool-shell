@@ -7,9 +7,9 @@
 
 awk '{ ip[$1][$9]++ } END { for (i in ip) for (j in ip[i]) print ip[i][j], i, j }' "$log_file" |
 
-   sort -rn
+   sort -nr
 
 
- Usage: ./script.sh
+# Usage: ./script.sh
 
 
