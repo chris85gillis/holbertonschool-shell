@@ -8,7 +8,7 @@ start() {
 
     if [ -f "$PID_FILE" ]; then
 
-        echo "manage_my_process is already started."
+        echo "manage_my_process is already started"
 
         return
 
@@ -20,7 +20,7 @@ start() {
 
     echo $! > "$PID_FILE"
 
-    echo "manage_my_process started."
+    echo "manage_my_process started"
 
 }
 
@@ -30,7 +30,7 @@ stop() {
 
     if [ ! -f "$PID_FILE" ]; then
 
-        echo "manage_my_process is not running."
+        echo "manage_my_process is not running"
 
         return
 
@@ -44,7 +44,7 @@ stop() {
 
     rm "$PID_FILE"
 
-    echo "manage_my_process stopped."
+    echo "manage_my_process stoppef"
 
 }
 
@@ -56,7 +56,7 @@ restart() {
 
     start
 
-    echo "manage_my_process restarted."
+    echo "manage_my_process restarted"
 
 }
 
