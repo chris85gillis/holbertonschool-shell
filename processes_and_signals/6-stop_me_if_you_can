@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Find the process ID (PID)
 
-pkill -P -z 4-to_infinity_and_beyond
+pkill -f 4-to_infinity_and_beyond
 
 
 
