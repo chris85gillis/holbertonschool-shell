@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Find the process ID (PID) of the process named "7-highlander"
 
-kill -9 -1 7-highlander 
+kill 7-highlander 
 
 
 
