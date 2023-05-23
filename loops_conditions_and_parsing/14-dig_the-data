@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
-#log_file="access.log"
-
-g_file="apache-access.log"                                                                                                                                               
-
-                                                                                                                                                                           
-
-                                                                                                                                                                           
+#log_file="access.log"      
 
                                                                                                                                                                            
 
