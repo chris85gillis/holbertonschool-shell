@@ -9,7 +9,7 @@ g_file="apache-access.log"
 
                                                                                                                                                                            
 
-awk '{ print $1, $9 }' "$log_file" uniq -c | sort -nr
+awk '{ print $1, $9 }' "$log_file" | uniq -c | sort -nr
 
 
 
