@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 #log_file="access.log"
 
+g_file="apache-access.log"                                                                                                                                               
 
+                                                                                                                                                                           
 
-log_file="access.log"
+                                                                                                                                                                           
 
+                                                                                                                                                                           
 
-
-awk '{ count[$1" "$9]++ } END { for (entry in count) printf "%-10s %s\n", count[entry], entry }' "$log_file" | sort -nr
+awk '{ print $1, $9 }' "$log_file" uniq -c | sort -nr
 
 
 
